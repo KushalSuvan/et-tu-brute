@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    image: shaky-backend
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8501:8501"
+    image: shaky-frontend
+    depends_on:
+      - backend
