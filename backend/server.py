@@ -15,7 +15,7 @@ class QueryRequest(BaseModel):
 
 class QueryResponse(BaseModel):
     answer: str
-    sources: List[Dict[str, Any]]
+    sources: List[str]
 
 
 

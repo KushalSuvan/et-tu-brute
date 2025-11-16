@@ -19,11 +19,11 @@ class Pipeline:
         self.gen_model = genai.GenerativeModel("gemini-2.5-flash-preview-09-2025")
         self.system_prompt = system_prompt
 
-        genai.configure(api_key = 'AIzaSyAXNs5vX0GTEMcKufpymn7Pqp2xsrdRZd4')
+        genai.configure(api_key = 'AIzaSyDMRdDJCnN5HqgYkJszqHgSrJrDeYB7VHw')
 
     def __call__(self, query):
         meta_docs = self._retrieve(query)
-        docs = [meta_doc['text'] for meta_doc in meta_docs]
+        docs = [meta_doc for meta_doc in meta_docs]
         response = self._generate(query, docs)
 
         return response.text, meta_docs
@@ -45,5 +45,5 @@ class Pipeline:
         query_emb = self.embed_model.encode([query], normalize_embeddings=True)
         query_emb = np.array(query_emb, dtype=np.float32)
 
-        distances, indices = self.index.search(query_emb, k=2)
+        distances, indices = self.index.search(query_emb, k=10)
         return [self.id_to_meta[idx] for idx in indices[0]]

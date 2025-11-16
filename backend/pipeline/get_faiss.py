@@ -24,7 +24,11 @@ def get_faiss():
 
     model = SentenceTransformer(MODEL_NAME)
     acts = get_acts()
-    embeddings = model.encode([act['text'] for act in acts], normalize_embeddings=True)
+    acts = list(map(stringify_metadata, acts))
+
+    print(acts)
+    
+    embeddings = model.encode([act for act in acts], normalize_embeddings=True)
     embeddings = np.array(embeddings, dtype=np.float32)
 
     index = faiss.IndexFlatIP(embeddings.shape[1])
@@ -46,3 +50,28 @@ def get_acts():
             acts.append(json.loads(act))
 
     return acts
+
+
+def stringify_metadata(meta: dict) -> str:
+    """
+    Convert metadata + text into a clean, deterministic string
+    suitable for embedding.
+    """
+
+    # Extract text separately
+    text = meta.get("text", "")
+
+    # Keep only metadata fields except 'text'
+    meta_no_text = {k: v for k, v in meta.items() if k != "text"}
+
+    # Sort keys for deterministic ordering
+    parts = []
+    for key in sorted(meta_no_text.keys()):
+        parts.append(f"{key}: {meta_no_text[key]}")
+
+    # Join metadata fields
+    meta_str = "; ".join(parts)
+
+    # Final embedding string
+    return f"[{meta_str}] {text}"
+
