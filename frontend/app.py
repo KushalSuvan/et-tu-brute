@@ -1,13 +1,13 @@
 import streamlit as st
 import requests
 
-API_URL = "http://127.0.0.1:8000/query"
+API_URL = "http://backend:8000/query"
 
 st.set_page_config(page_title="RAG Chat", page_icon="🤖", layout="centered")
 
-st.title("📚 RAG Scholar Assistant")
+st.title("📚 Julius Caesar Querer")
 
-query = st.text_area("Ask your question:", placeholder="e.g. What is Einstein famous for?")
+query = st.text_area("Ask your question:", placeholder="e.g. Who swayed Brutus?")
 if st.button("Submit Query"):
     if not query.strip():
         st.warning("Please enter a question.")
@@ -18,14 +18,14 @@ if st.button("Submit Query"):
                 response.raise_for_status()
                 data = response.json()
                 
-                st.subheader("🧠 Scholar's Answer:")
+                st.subheader("🧠 Epaphroditos's Answer:")
                 st.write(data["answer"])
                 
                 st.markdown("---")
                 st.subheader("📚 Sources:")
                 for src in data["sources"]:
-                    st.markdown(f"**Chunk:** {src['chunk']}")
-                    st.json(src["metadata"])
+                    st.markdown(f"**Chunk:** {src}")
+                    # st.json(src["metadata"])
                     st.markdown("---")
             except Exception as e:
                 st.error(f"Error: {e}")
