@@ -8,8 +8,8 @@ from sentence_transformers import SentenceTransformer
 INDEX_FILE = "pipeline/cache/vector.index"
 META_FILE = "pipeline/cache/metadata.pkl"
 
-MODEL_NAME = "BAAI/bge-base-en-v1.5"
-ACTS_PATH = "pipeline/data/julius_chunks.jsonl"
+MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+ACTS_PATH = "pipeline/data/julius_chunksafter.jsonl"
 
 
 def get_faiss():
@@ -49,20 +49,20 @@ def get_acts():
         for line in f:
             raw_lines.append(json.loads(line))
 
-    # Group by act and scene
-    from collections import defaultdict
-    grouped = defaultdict(list)
-    for line in raw_lines:
-        key = (line['act'], line['scene'])
-        grouped[key].append(line)
+    # # Group by act and scene
+    # from collections import defaultdict
+    # grouped = defaultdict(list)
+    # for line in raw_lines:
+    #     key = (line['act'], line['scene'])
+    #     grouped[key].append(line)
 
-    # Build chunks in the "In Act X, Scene Y, Speaker says that ..." style
-    acts = []
-    for (act, scene), dialogues in grouped.items():
-        text_chunk = f"In Act {act}, Scene {scene}, "
-        utterances = [f"{d['speaker']} says that {d['text']}" for d in dialogues]
-        text_chunk += ", ".join(utterances)
-        acts.append({"act": act, "scene": scene, "text": text_chunk})
+    # # Build chunks in the "In Act X, Scene Y, Speaker says that ..." style
+    acts = raw_lines
+    # for (act, scene), dialogues in grouped.items():
+    #     text_chunk = f"In Act {act}, Scene {scene}, "
+    #     utterances = [f"{d['speaker']} says that {d['text']}" for d in dialogues]
+    #     text_chunk += ", ".join(utterances)
+    #     acts.append({"act": act, "scene": scene, "text": text_chunk})
 
     return acts
 
