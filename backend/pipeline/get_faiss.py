@@ -44,10 +44,25 @@ def get_faiss():
 
 
 def get_acts():
-    acts = []
+    raw_lines = []
     with open(ACTS_PATH, "r", encoding="utf-8") as f:
-        for act in f:
-            acts.append(json.loads(act))
+        for line in f:
+            raw_lines.append(json.loads(line))
+
+    # Group by act and scene
+    from collections import defaultdict
+    grouped = defaultdict(list)
+    for line in raw_lines:
+        key = (line['act'], line['scene'])
+        grouped[key].append(line)
+
+    # Build chunks in the "In Act X, Scene Y, Speaker says that ..." style
+    acts = []
+    for (act, scene), dialogues in grouped.items():
+        text_chunk = f"In Act {act}, Scene {scene}, "
+        utterances = [f"{d['speaker']} says that {d['text']}" for d in dialogues]
+        text_chunk += ", ".join(utterances)
+        acts.append({"act": act, "scene": scene, "text": text_chunk})
 
     return acts
 
@@ -73,5 +88,5 @@ def stringify_metadata(meta: dict) -> str:
     meta_str = "; ".join(parts)
 
     # Final embedding string
-    return f"[{meta_str}] {text}"
+    return text
 
