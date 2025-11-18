@@ -98,7 +98,7 @@ To start all services:
 ### **1. Open the project folder**
 
 ```
-cd <project-folder>
+cd et-tu-brute
 ```
 
 ### **2. Launch the containerized stack**
