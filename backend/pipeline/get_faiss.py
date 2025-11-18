@@ -56,7 +56,6 @@ def get_acts():
     #     key = (line['act'], line['scene'])
     #     grouped[key].append(line)
 
-    # # Build chunks in the "In Act X, Scene Y, Speaker says that ..." style
     acts = raw_lines
     # for (act, scene), dialogues in grouped.items():
     #     text_chunk = f"In Act {act}, Scene {scene}, "
@@ -68,25 +67,16 @@ def get_acts():
 
 
 def stringify_metadata(meta: dict) -> str:
-    """
-    Convert metadata + text into a clean, deterministic string
-    suitable for embedding.
-    """
 
-    # Extract text separately
     text = meta.get("text", "")
 
-    # Keep only metadata fields except 'text'
     meta_no_text = {k: v for k, v in meta.items() if k != "text"}
 
-    # Sort keys for deterministic ordering
     parts = []
     for key in sorted(meta_no_text.keys()):
         parts.append(f"{key}: {meta_no_text[key]}")
 
-    # Join metadata fields
     meta_str = "; ".join(parts)
 
-    # Final embedding string
     return text
 
