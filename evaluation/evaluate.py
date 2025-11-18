@@ -54,7 +54,7 @@ async def main():
     # -------------------------------------------------------
     client = AsyncOpenAI()
 
-    llm = llm_factory("gpt-4o-mini", client=client)
+    llm = llm_factory("gpt-3.5-turbo", client=client)
 
     embeddings = embedding_factory(
         "openai",
@@ -113,3 +113,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+    a = "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"
