@@ -589,3 +589,12 @@ Brutus’s belief that murder can be honorable if done without hatred contradict
 ### Scores
 - **Answer Relevance:** 1.0  
 - **Faithfulness:** 1.0
+
+
+# Qualitative studies
+
+- Faithfulness has been consistently high, the answers rarely being out of context
+- Incomplete question were rightly handled
+- The pipeline performs really well on cross-chunk summary type questions
+- The pipeline is able yo get minute details too
+- If the words deviate too much, and under soloquiys, the pipeline suffers
