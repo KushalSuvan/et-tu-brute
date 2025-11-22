@@ -1,7 +1,0 @@
-,Metric,Score (Normalized),Score (%)
-0,Query Relevance,1.0,100.0
-1,Factual Accuracy,1.0,100.0
-2,Coverage,1.0,100.0
-3,Coherence,1.0,100.0
-4,Fluency,1.0,100.0
-5,Overall Accuracy,1.0,100.0
