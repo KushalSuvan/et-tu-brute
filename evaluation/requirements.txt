@@ -1,5 +1,2 @@
-pandas
-ragas
-datasets
-google-genai
-sentence-transformers
+rag_evaluation
+
