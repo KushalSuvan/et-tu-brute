@@ -486,6 +486,23 @@ He struggles between his loyalty to Caesar and his fear that Caesar’s ambition
 ### Scores
 - **Answer Relevance:** 0.0
 - **Faithfulness:** 1.0
+ ---
+### Query
+What were the internal strifes of Casca?
+
+### Answer
+Casca’s internal strifes revolve around fear and astonishment at unnatural and supernatural omens. He is depicted as “breathless,” staring, pale, and overwhelmed by the portents, fearing they signal “civil strife in heaven” or divine wrath. Cassius criticizes Casca for lacking the courage and decisiveness expected of a Roman, highlighting his inner conflict between fear and the demands of political action.
+
+### Ideal Answer
+Casca experiences profound internal conflict caused by a mix of superstition and fear.  
+- He is terrified by the storm and unusual occurrences, describing them as signs of cosmic disorder.  
+- He struggles with understanding whether these portents predict political upheaval or divine punishment.  
+- Cassius reproaches him for his hesitation, calling him “dull” and fearful, which underscores Casca’s inner tension between human apprehension and the need to act decisively in the conspiracy.
+
+### Scores
+- **Answer Relevance:** 1.0  
+- **Faithfulness:** 1.0
+
 
 
 ---
@@ -508,6 +525,22 @@ Shakespeare uses Casca’s fear and superstition to show Romans interpreting ome
 
 ---
 
+### Query
+What were the true reasons for the conspirators other than Brutus that intended to kill Caesar, whether they were as noble as portrayed by them? Give examples.
+
+### Answer
+The other conspirators were largely driven by envy, fear of losing power, and personal rivalry. Cassius resented Caesar’s rise and was seen by Caesar as “dangerous.” Casca acted out of envy, striking the first blow “like a cur,” and Decius, Trebonius, and Metellus were motivated by political self-interest, even proposing Antony’s murder to protect themselves.
+
+### Ideal Answer
+Most conspirators acted from ambition and resentment rather than noble ideals.  
+- **Cassius** manipulated others due to jealousy of Caesar’s power.  
+- **Casca** showed personal malice, described as “envious.”  
+- **Metellus and others** sought political advantage, even advocating killing Antony to secure their position.  
+Their motives contrast sharply with Brutus’s idealistic justification.
+
+### Scores
+- **Answer Relevance:** 1.0  
+- **Faithfulness:** 1.0
 
 ### Query
 Analyze how Brutus’s argument that the conspirators must kill Caesar “boldly, but not wrathfully” exposes contradictions in his ethical framework and how his idealism creates moral blindness leading to tragedy.
