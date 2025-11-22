@@ -436,6 +436,41 @@ mender of soles
 
 ---
 
+
+### Query
+Brutus’ tongue had ended what?
+
+### Answer
+Brutus’ tongue had almost ended his life’s history.
+
+### Ideal Answer
+In Act 5, Scene 5, Brutus reflects that “his tongue hath almost ended his life’s history,” referring to his final words and actions before his planned suicide, marking the completion of his personal story.
+
+### Scores
+- **Answer Relevance:** 1.0  
+- **Faithfulness:** 1.0
+
+
+---
+
+### Query
+"But wherefore did you so much tempt the heavens?" who says this?
+
+### Answer
+Casca says this.
+
+### Ideal Answer
+Casca speaks this line in Act 1, Scene 3, questioning Cassius’s daring behavior during the storm and supernatural portents, expressing fear and astonishment at his actions.
+
+### Scores
+- **Answer Relevance:** 1.0  
+- **Faithfulness:** 1.0
+
+
+---
+
+
+
 ## Act and Scene based queries
 
 ### Query
